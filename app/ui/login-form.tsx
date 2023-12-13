@@ -24,7 +24,7 @@ export default function LoginForm() {
               Email
             </label>
             <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-              <Input type="email" id="email" name="email" placeholder="john@doe.com" required/>
+              <Input type="email" id="email" name="email" placeholder="john@doe.com" required />
             </div>
           </div>
           <div className="mt-4">
@@ -35,11 +35,13 @@ export default function LoginForm() {
               Password
             </label>
             <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-              <Input type="password" id="password" name="password" placeholder="************" required/>
+              <Input type="password" id="password" name="password" placeholder="************" required />
             </div>
           </div>
         </div>
-        <LoginButton />
+        <Button className="mt-4 w-full" endIcon={<NavigateNextIcon />} type='submit'>
+          Login
+        </Button>
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -58,11 +60,10 @@ export default function LoginForm() {
 }
 
 function LoginButton() {
-  const { pending } = useFormStatus();
 
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending}>
-      Log in <NavigateNextIcon className="ml-auto h-5 w-5 text-gray-50" />
+    <Button className="mt-4 w-full" endIcon={<NavigateNextIcon />}>
+      Login
     </Button>
   );
 }
