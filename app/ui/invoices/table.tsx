@@ -1,20 +1,71 @@
+'use client';
+
 import Image from 'next/image';
 import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredInvoices } from '@/app/lib/data';
+import { invoices } from '@/app/lib/placeholder-data';
+import type { InvoicesTable } from '@/app/lib/definitions';
+import { Avatar, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
-export default async function InvoicesTable({
-  query,
-  currentPage,
+export default function InvoicesTable({
+  invoices
 }: {
-  query: string;
-  currentPage: number;
+  invoices: InvoicesTable[];
 }) {
-  const invoices = await fetchFilteredInvoices(query, currentPage);
+  // const invoices = await fetchFilteredInvoices(query, currentPage);
 
   return (
-    <div className="mt-6 flow-root">
+    <>
+      <Table>
+        <TableHead aria-label='Example'>
+          <TableRow>
+          <TableCell>Customer</TableCell>
+          <TableCell>Amount</TableCell>
+          <TableCell>Date</TableCell>
+          <TableCell>Status</TableCell>
+          <TableCell>Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {invoices?.map((invoice) => (
+            <TableRow key={invoice.id}>
+              <TableCell>
+                <div className="flex items-center gap-3">
+                  <Avatar
+                    src={invoice.image_url}
+                    alt={`${invoice.name}'s profile picture`} />
+                  <p>{invoice.name}</p>
+                </div>
+              </TableCell>
+              <TableCell>
+                <p
+                  className={`truncate text-sm font-medium md:text-base`}
+                >
+                  {formatCurrency(invoice.amount)}
+                </p>
+              </TableCell>
+              <TableCell>
+                <p className="text-sm text-gray-500">
+                  {formatDateToLocal(invoice.date)}
+                </p>
+              </TableCell>
+              <TableCell>
+                <InvoiceStatus status={invoice.status} />
+              </TableCell>
+              <TableCell>
+                <div className="flex justify-end gap-3">
+                  <UpdateInvoice id={invoice.id} />
+                  <DeleteInvoice id={invoice.id} />
+                </div>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </>
+    /*<div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
         <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
           <div className="md:hidden">
@@ -26,11 +77,9 @@ export default async function InvoicesTable({
                 <div className="flex items-center justify-between border-b pb-4">
                   <div>
                     <div className="mb-2 flex items-center">
-                      <Image
+                      <Avatar
                         src={invoice.image_url}
-                        className="mr-2 rounded-full"
-                        width={28}
-                        height={28}
+                        className="mr-2 rounded-full w-28 h-28"
                         alt={`${invoice.name}'s profile picture`}
                       />
                       <p>{invoice.name}</p>
@@ -119,6 +168,6 @@ export default async function InvoicesTable({
           </table>
         </div>
       </div>
-    </div>
+    </div>*/
   );
 }

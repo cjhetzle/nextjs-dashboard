@@ -1,5 +1,4 @@
 import NextAuth from 'next-auth';
-import credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
 import Credentials from 'next-auth/providers/credentials';
 import { sql } from '@vercel/postgres';
@@ -25,7 +24,7 @@ export const { auth, signIn, signOut } = NextAuth({
         const parsedCredentials = z
           .object({ email: z.string().email(), password: z.string().min(6) })
           .safeParse(credentials);
-
+        console.log('credentials', credentials, parsedCredentials);
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
           const user = await getUser(email);

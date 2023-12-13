@@ -1,16 +1,13 @@
-import {
-  BanknotesIcon,
-  ClockIcon,
-  UserGroupIcon,
-  InboxIcon,
-} from '@heroicons/react/24/outline';
-import { inter, lusitana } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
+import InboxIcon from '@mui/icons-material/Inbox';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import GroupIcon from '@mui/icons-material/Group';
 
 const iconMap = {
-  collected: BanknotesIcon,
-  customers: UserGroupIcon,
-  pending: ClockIcon,
+  collected: AccountBalanceIcon,
+  customers: GroupIcon,
+  pending: AccessTimeIcon,
   invoices: InboxIcon,
 };
 

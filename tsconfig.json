@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "app/lib/placeholder-data.js",
     "scripts/seed.js"
-  ],
+, "app/ui/invoices/SearchIcon.jsx"  ],
   "exclude": ["node_modules"]
 }
