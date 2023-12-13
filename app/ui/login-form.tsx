@@ -1,9 +1,8 @@
 'use client';
 
-import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '../lib/actions';
-import { Input } from '@mui/material';
+import { Button, Input } from '@mui/material';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
