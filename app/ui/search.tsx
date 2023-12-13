@@ -1,9 +1,10 @@
 'use client';
 
-import { Input } from '@mui/material';
+// import { Input } from '@mui/material';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import SearchIcon from '@mui/icons-material/Search';
+import { Input } from '@mantine/core';
 
 export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams();
@@ -27,7 +28,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
       <label htmlFor="search" className="sr-only">
         Search
       </label>
-      <Input
+      <Input variant='filled'
+      radius='md'
         className="peer block w-full rounded-md  border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={placeholder}
         onChange={(e) => {

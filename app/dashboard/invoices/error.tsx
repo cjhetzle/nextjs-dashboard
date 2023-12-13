@@ -1,6 +1,7 @@
 'use client';
 
-import { Button } from '@mui/material';
+import { Button } from '@mantine/core';
+// import { Button } from '@mui/material';
 import { useEffect } from 'react';
  
 export default function Error({

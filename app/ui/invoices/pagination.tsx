@@ -6,7 +6,8 @@ import { generatePagination } from '@/app/lib/utils';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Pagination as MuiPagination } from '@mui/material';
+// import { Pagination as MuiPagination } from '@mui/material';
+import { Pagination as MantinePagination } from '@mantine/core';
 
 export default function Pagination({ totalPages }: { totalPages: number }) {
   // NOTE: comment in this code when you get to this point in the course
@@ -21,12 +22,12 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const handlePagination = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePagination = (value: number) => {
     setPageURL(value);
   }
 
   return (
-    <MuiPagination shape='rounded' count={totalPages} onChange={handlePagination} />
+    <MantinePagination radius='md' total={totalPages} onChange={(n) => handlePagination(n)} />
   );
 }
 

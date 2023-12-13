@@ -2,7 +2,8 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '../lib/actions';
-import { Button, Input } from '@mui/material';
+import { Button, Input } from '@mantine/core';
+// import { Button, Input } from '@mui/material';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
@@ -39,7 +40,7 @@ export default function LoginForm() {
             </div>
           </div>
         </div>
-        <Button className="mt-4 w-full" endIcon={<NavigateNextIcon />} type='submit'>
+        <Button className="mt-4 w-full" rightSection={<NavigateNextIcon />} type='submit'>
           Login
         </Button>
         <div
@@ -62,7 +63,7 @@ export default function LoginForm() {
 function LoginButton() {
 
   return (
-    <Button className="mt-4 w-full" endIcon={<NavigateNextIcon />}>
+    <Button className="mt-4 w-full" rightSection={<NavigateNextIcon />}>
       Login
     </Button>
   );

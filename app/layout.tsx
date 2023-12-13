@@ -3,9 +3,10 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import '@mantine/core/styles.css';
 import { Providers } from './providers';
 import { roboto } from './ui/fonts';
-import { SessionProvider } from 'next-auth/react';
+import { ColorSchemeScript } from '@mantine/core';
 
 export default function RootLayout({
   children,
@@ -14,11 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='dark'>
+      <head>
+        <ColorSchemeScript />
+      </head>
       <body className={`${roboto.className} antialiased`}>
         <Providers>
-          <SessionProvider>
-            {children}
-          </SessionProvider>
+          {children}
         </Providers>
       </body>
     </html>

@@ -2,8 +2,10 @@
 import AcmeLogo from '@/app/ui/acme-logo';
 import { signOut } from '@/auth';
 import NavLinks from './nav-links';
-import { Button, Link } from '@mui/material';
-import LoginButton from './loginbutton';
+// import { Button, Link } from '@mui/material';
+import LogoutButton from './logoutbutton';
+import { NavLink } from '@mantine/core';
+import Link from 'next/link';
 
 
 export default function SideNav() {
@@ -21,7 +23,7 @@ export default function SideNav() {
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
-        <LoginButton />
+        <LogoutButton />
       </div>
     </div>
   );
