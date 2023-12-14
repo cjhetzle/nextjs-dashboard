@@ -7,8 +7,6 @@ import { updateInvoice } from '@/app/lib/actions';
 import { useFormState } from 'react-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import CheckIcon from '@mui/icons-material/Check';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { Chip, Group } from '@mantine/core';
 import { StatusRadio } from './status';
 
